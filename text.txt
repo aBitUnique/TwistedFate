@@ -1,0 +1,13 @@
+ledto.LeagueId,
+ledto.SummonerId,
+ledto.SummonerName,
+ledto.QueueType,
+ledto.Tier,
+ledto.Rank,
+ledto.LeaguePoints,
+ledto.Wins,
+ledto.Losses,
+ledto.HotStreak,
+ledto.Veteran,
+ledto.FreshBlood,
+ledto.Inactive 
