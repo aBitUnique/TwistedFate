@@ -1,11 +1,4 @@
-package github
-
-import (
-	"encoding/json"
-	"fmt"
-)
-
-.com/aBitUnique/TwistedFate
+package TwistedFate
 
 import (
 	"encoding/json"

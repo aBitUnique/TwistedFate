@@ -1,8 +1,4 @@
-package github
-
-import "net/http"
-
-.com/aBitUnique/TwistedFate
+package TwistedFate
 
 import (
 	"net/http"
