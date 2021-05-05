@@ -1,4 +1,4 @@
-package TwistedFate
+package internal
 
 import (
 	"net/http"

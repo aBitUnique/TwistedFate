@@ -1,4 +1,4 @@
-package TwistedFate
+package internal
 
 import (
 	"encoding/json"
@@ -32,7 +32,7 @@ func GetSummonerByAccountId(accountId string) (SummonerDto, error) {
 	if err != nil {
 		return Summoner, err
 	}
-	err = json.NewDecoder(resp.Body).Decode(Summoner)
+	err = json.NewDecoder(resp.Body).Decode(&Summoner)
 	if err != nil {
 		return Summoner, err
 	}
@@ -40,15 +40,17 @@ func GetSummonerByAccountId(accountId string) (SummonerDto, error) {
 }
 
 func GetSummonerByName(name string) (SummonerDto, error) {
-	Summoner := SummonerDto{}
+	var Summoner SummonerDto
 	resp, err := GetRequest(fmt.Sprintf("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/%s", name))
 	if err != nil {
+		fmt.Println(err)
 		return Summoner, err
 	}
-	err = json.NewDecoder(resp.Body).Decode(Summoner)
+	err = json.NewDecoder(resp.Body).Decode(&Summoner)
 	if err != nil {
 		return Summoner, err
 	}
+	fmt.Println("Fine")
 	return Summoner, nil
 }
 
@@ -58,7 +60,7 @@ func GetSummonerByPuuid(puuid string) (SummonerDto, error) {
 	if err != nil {
 		return Summoner, err
 	}
-	err = json.NewDecoder(resp.Body).Decode(Summoner)
+	err = json.NewDecoder(resp.Body).Decode(&Summoner)
 	if err != nil {
 		return Summoner, err
 	}
@@ -71,7 +73,7 @@ func GetSummonerBySummonerId(summonerId string) (SummonerDto, error) {
 	if err != nil {
 		return Summoner, err
 	}
-	err = json.NewDecoder(resp.Body).Decode(Summoner)
+	err = json.NewDecoder(resp.Body).Decode(&Summoner)
 	if err != nil {
 		return Summoner, err
 	}

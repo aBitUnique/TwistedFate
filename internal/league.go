@@ -1,4 +1,4 @@
-package TwistedFate
+package internal
 
 import (
 	"encoding/json"
@@ -9,17 +9,17 @@ type LeagueEntryDto struct {
 	LeagueId string
 	SummonerId string
 	SummonerName string
-	QueueType string
-	Tier string
-	Rank string
+	QueueType    string
+	Tier         string
+	Rank         string
 	LeaguePoints int
-	Wins int
-	Losses int
-	HotStreak bool
-	Veteran bool
-	FreshBlood bool
-	Inactive bool
-	MiniSeries MiniSeriesDto
+	Wins         int
+	Losses       int
+	HotStreak    bool
+	Veteran      bool
+	FreshBlood   bool
+	Inactive     bool
+	MiniSeries   MiniSeriesDto
 }
 
 type MiniSeriesDto struct {
@@ -52,7 +52,7 @@ func GetLeagueEntryBySummonerId(summonerId string) ([]LeagueEntryDto, error) {
 	if err != nil {
 		return LeagueEntry, err
 	}
-	err = json.NewDecoder(resp.Body).Decode(LeagueEntry)
+	err = json.NewDecoder(resp.Body).Decode(&LeagueEntry)
 	if err != nil {
 		return LeagueEntry, err
 	}

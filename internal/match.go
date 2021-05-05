@@ -1,4 +1,4 @@
-package TwistedFate
+package internal
 
 import (
 	"encoding/json"
@@ -29,12 +29,12 @@ func (mdto MatchlistDto) String() string {
 }
 
 func GetMatchlistByAccountId(accountId string) (MatchlistDto, error) {
-	Matchlist := MatchlistDto{}
+	var Matchlist MatchlistDto
 	resp, err := GetRequest(fmt.Sprintf("https://euw1.api.riotgames.com/lol/match/v4/matchlists/by-account/%s", accountId))
 	if err != nil {
 		return Matchlist, err
 	}
-	err = json.NewDecoder(resp.Body).Decode(Matchlist)
+	err = json.NewDecoder(resp.Body).Decode(&Matchlist)
 	if err != nil {
 		return Matchlist, err
 	}
