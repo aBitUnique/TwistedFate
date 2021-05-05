@@ -50,7 +50,6 @@ func GetSummonerByName(name string) (SummonerDto, error) {
 	if err != nil {
 		return Summoner, err
 	}
-	fmt.Println("Fine")
 	return Summoner, nil
 }
 
