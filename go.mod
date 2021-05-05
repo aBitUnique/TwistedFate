@@ -1,1 +1,1 @@
-module "TwistedFate"
+module "github.com/aBitUnique/TwistedFate"
