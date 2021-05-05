@@ -1,6 +1,0 @@
-package TwistedFate
-
-func main() {
-
-}
-

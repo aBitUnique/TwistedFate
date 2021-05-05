@@ -28,8 +28,8 @@ func (mdto MatchlistDto) String() string {
 		mdto.TotalGames)
 }
 
-func GetMatchlistByAccountId(accountId string) (*MatchlistDto, error) {
-	Matchlist := new(MatchlistDto)
+func GetMatchlistByAccountId(accountId string) (MatchlistDto, error) {
+	Matchlist := MatchlistDto{}
 	resp, err := GetRequest(fmt.Sprintf("https://euw1.api.riotgames.com/lol/match/v4/matchlists/by-account/%s", accountId))
 	if err != nil {
 		return Matchlist, err

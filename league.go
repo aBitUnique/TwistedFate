@@ -46,8 +46,8 @@ func (ledto LeagueEntryDto) String() string {
 	ledto.Inactive)
 }
 
-func GetLeagueEntryBySummonerId(summonerId string) (*[]LeagueEntryDto, error) {
-	LeagueEntry := new([]LeagueEntryDto)
+func GetLeagueEntryBySummonerId(summonerId string) ([]LeagueEntryDto, error) {
+	var LeagueEntry []LeagueEntryDto
 	resp, err := GetRequest(fmt.Sprintf("https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/%s", summonerId))
 	if err != nil {
 		return LeagueEntry, err

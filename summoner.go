@@ -26,8 +26,8 @@ func (sDto SummonerDto) String() string {
 		sDto.SummonerLevel)
 }
 
-func GetSummonerByAccountId(accountId string) (*SummonerDto, error) {
-	Summoner := new(SummonerDto)
+func GetSummonerByAccountId(accountId string) (SummonerDto, error) {
+	Summoner := SummonerDto{}
 	resp, err := GetRequest(fmt.Sprintf("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-account/%s", accountId))
 	if err != nil {
 		return Summoner, err
@@ -39,8 +39,8 @@ func GetSummonerByAccountId(accountId string) (*SummonerDto, error) {
 	return Summoner, nil
 }
 
-func GetSummonerByName(name string) (*SummonerDto, error) {
-	Summoner := new(SummonerDto)
+func GetSummonerByName(name string) (SummonerDto, error) {
+	Summoner := SummonerDto{}
 	resp, err := GetRequest(fmt.Sprintf("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/%s", name))
 	if err != nil {
 		return Summoner, err
@@ -52,8 +52,8 @@ func GetSummonerByName(name string) (*SummonerDto, error) {
 	return Summoner, nil
 }
 
-func GetSummonerByPuuid(puuid string) (*SummonerDto, error) {
-	Summoner := new(SummonerDto)
+func GetSummonerByPuuid(puuid string) (SummonerDto, error) {
+	Summoner := SummonerDto{}
 	resp, err := GetRequest(fmt.Sprintf("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/%s", puuid))
 	if err != nil {
 		return Summoner, err
@@ -65,8 +65,8 @@ func GetSummonerByPuuid(puuid string) (*SummonerDto, error) {
 	return Summoner, nil
 }
 
-func GetSummonerBySummonerId(summonerId string) (*SummonerDto, error) {
-	Summoner := new(SummonerDto)
+func GetSummonerBySummonerId(summonerId string) (SummonerDto, error) {
+	Summoner := SummonerDto{}
 	resp, err := GetRequest(fmt.Sprintf("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/%s", summonerId))
 	if err != nil {
 		return Summoner, err
