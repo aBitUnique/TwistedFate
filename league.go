@@ -3,6 +3,7 @@ package TwistedFate
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 )
 
 type LeagueEntryDto struct {
@@ -44,6 +45,17 @@ func (ledto LeagueEntryDto) String() string {
 	ledto.Veteran,
 	ledto.FreshBlood,
 	ledto.Inactive)
+}
+
+func (ledto LeagueEntryDto) ReturnStats() string {
+	return fmt.Sprintf("\n %s %s %s %v LP // %v wins and %v losses // %v%% WR.",
+		strings.Split(ledto.QueueType, "_")[1],
+		ledto.Tier,
+		ledto.Rank,
+		ledto.LeaguePoints,
+		ledto.Wins,
+		ledto.Losses,
+		100*(ledto.Wins)/(ledto.Wins + ledto.Losses))
 }
 
 func GetLeagueEntryBySummonerId(summonerId string) ([]LeagueEntryDto, error) {
